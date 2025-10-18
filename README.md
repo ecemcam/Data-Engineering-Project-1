@@ -82,19 +82,22 @@ airflow dags trigger beije_elt_pipeline_layered
 
 ```
 data-pipeline-project/
-├── airflow_orchestration/     # Airflow setup
-│   └── dags/etl_pipeline.py
-├── dbt/                       # dbt transformations
-│   └── models/
-│       ├── staging/
-│       ├── intermediate/
-│       ├── dims/
-│       ├── facts/
-│       └── marts/
-├── ingestion/load_to_bg.py    # Load CSVs to BigQuery
-├── raw_data/                  # Source CSV files
-├── venv/                      # Python environment
-└── requirements.txt
+├── airflow_orchestration/ # Airflow setup
+│ └── dags/
+│ └── etl_pipeline.py # Airflow DAG defining the ETL pipeline
+├── dbt/ # dbt transformations
+│ ├── analyses/ # SQL queries for data analysis
+│ └── models/
+│ ├── staging/ # Staging tables
+│ ├── intermediate/ # Intermediate transformations
+│ ├── dims/ # Dimension tables
+│ ├── facts/ # Fact tables
+│ └── marts/ # Data marts
+├── ingestion/
+│ └── load_to_bg.py # Script to load CSVs into BigQuery
+├── raw_data/ # Source CSV files
+├── venv/ # Python virtual environment
+└── requirements.txt # Python dependencies
 ```
 
 ## Key Tables
