@@ -1,0 +1,117 @@
+
+# =====================================================
+# STAGING DATA QUALITY CHECKS (Cleaned Data Layer)
+# Purpose: Verify our data transformation pipeline works correctly
+# Strategy: STRICT tests that MUST PASS - proves data cleaning effectiveness
+# =====================================================
+
+version: 2
+
+models:
+  - name: stg_users
+    description: "Cleaned and standardized users data with deduplication applied"
+    columns:
+      - name: user_id
+        description: "The primary key of the user (source: _id)"
+        tests:
+          - unique    # EXPECTED: After cleaning, every user has unique ID
+          - not_null  # EXPECTED: After cleaning, no null user IDs remain
+      - name: created_at
+        description: "When the user account was created (standardized timestamp)"
+        tests:
+          - not_null  # EXPECTED: All users should have creation timestamp
+
+  - name: stg_orders
+    description: "Cleaned orders data with JSON extraction and amount validation"
+    columns:
+      - name: order_id
+        description: "The primary key of the order (source: _id)"
+        tests:
+          - unique    # EXPECTED: Every order has unique identifier
+          - not_null  # EXPECTED: No orders missing IDs after cleaning
+      - name: user_id
+        description: "Foreign key to the users dimension. Must be present for customer analytics."
+        tests:
+          - not_null  # BUSINESS RULE: Every order must link to a valid user
+          - relationships:
+              to: ref('stg_users')
+              field: user_id  # REFERENTIAL INTEGRITY: All user_ids exist in stg_users
+
+  - name: stg_subscriptions
+    description: "Cleaned subscription data with active status flags"
+    columns:
+      - name: subscription_id
+        description: "Primary key for subscriptions (source: _id)"
+        tests:
+          - unique    # EXPECTED: Unique subscription identifiers
+          - not_null  # EXPECTED: No null subscription IDs after cleaning
+      - name: user_id
+        description: "Foreign key to users table. Links subscription to customer."
+        tests:
+          - not_null  # BUSINESS RULE: Every subscription must have a user
+          - relationships:
+              to: ref('stg_users')
+              field: user_id  # REFERENTIAL INTEGRITY: All user_ids exist in stg_users
+      - name: start_date
+        description: "When the subscription started (standardized timestamp)"
+        tests:
+          - not_null  # BUSINESS RULE: All subscriptions must have start date
+
+  - name: stg_shipments
+    description: "Cleaned and deduplicated shipment records with delivery tracking"
+    columns:
+      - name: shipment_id
+        description: "Primary key for shipments (source: _id)"
+        tests:
+          - unique    # EXPECTED: Unique shipment identifiers
+          - not_null  # EXPECTED: No null shipment IDs after cleaning
+      - name: user_id
+        description: "Foreign key to the users dimension. Must be present for customer delivery tracking."
+        tests:
+          - not_null  # BUSINESS RULE: Every shipment must link to a valid user
+          - relationships:
+              to: ref('stg_users')
+              field: user_id  # REFERENTIAL INTEGRITY: All user_ids exist in stg_users
+
+# =====================================================
+# REFERENCE DATA CHECKS (Lookup Tables)
+# Purpose: Ensure dimension tables have proper integrity
+# Strategy: Basic PK tests for static reference data
+# =====================================================
+  - name: stg_countries
+    description: "Countries reference data for geographic dimensions"
+    columns:
+      - name: country_id
+        tests:
+          - unique    # EXPECTED: Unique country codes
+          - not_null  # EXPECTED: No null country identifiers
+
+  - name: stg_addresses
+    description: "Customer addresses for shipping and billing dimensions"
+    columns:
+      - name: address_id
+        tests:
+          - unique    # EXPECTED: Unique address identifiers
+          - not_null  # EXPECTED: No null address IDs
+      - name: user_id
+        description: "Foreign key to the user who owns this address."
+        tests:
+          - not_null  # BUSINESS RULE: Every address must belong to a user
+          - relationships:
+              to: ref('stg_users')
+              field: user_id  # REFERENTIAL INTEGRITY: All user_ids exist in stg_users
+
+
+# To check if the delivery date exists for those delivered orders this test is crucial for "mart_revenue_daily"
+  - name: int_shipments_decomposed
+    description: "Intermediate shipments with parsed delivery dates"
+    columns:
+      - name: delivered_at
+        description: "Delivery timestamp (uses created_at as fallback for missing dates)"
+        tests:
+          - not_null:
+              severity: warn  # WARNING instead of ERROR since we handle it in the mart table
+      - name: latest_status
+        tests:
+          - not_null
+      

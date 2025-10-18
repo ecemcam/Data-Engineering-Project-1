@@ -1,0 +1,125 @@
+[0m19:00:24.934617 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78d87c2f0a10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78d87bcdade0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78d87bead340>]}
+
+
+============================== 19:00:24.943163 | 8368ddf3-d67b-473b-a98c-04fb4facd90a ==============================
+[0m19:00:24.943163 [info ] [MainThread]: Running with dbt=1.11.0-b3
+[0m19:00:24.944247 [debug] [MainThread]: running dbt with arguments {'partial_parse': 'True', 'use_experimental_parser': 'False', 'quiet': 'False', 'log_format': 'default', 'printer_width': '80', 'target_path': 'None', 'fail_fast': 'False', 'profiles_dir': '/home/ecem/.dbt', 'introspect': 'True', 'send_anonymous_usage_stats': 'True', 'empty': 'False', 'use_colors': 'True', 'no_print': 'None', 'cache_selected_only': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'log_cache_events': 'False', 'version_check': 'True', 'warn_error': 'None', 'static_parser': 'True', 'log_path': 'logs', 'debug': 'False', 'write_json': 'True', 'indirect_selection': 'eager', 'invocation_command': 'dbt run --select dim_subscription'}
+[0m19:00:24.944879 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /home/ecem/Desktop/data-pipeline-project/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m19:00:24.948633 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": false, "command_wall_clock_time": 0.076909736, "process_in_blocks": "51016", "process_kernel_time": 0.468824, "process_mem_max_rss": "98688", "process_out_blocks": "8", "process_user_time": 1.428798}
+[0m19:00:24.949305 [debug] [MainThread]: Command `dbt run` failed at 19:00:24.949196 after 0.08 seconds
+[0m19:00:24.949896 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78d87bc8d370>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78d87d888770>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78d87b233e60>]}
+[0m19:00:24.951225 [debug] [MainThread]: Flushing usage events
+[0m19:00:25.923029 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m19:02:03.797380 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ab00c9fadb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ab00cbb7a40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ab00cb6a150>]}
+
+
+============================== 19:02:03.800481 | 5448404f-c5f0-4f32-9376-6f0071b5d7f9 ==============================
+[0m19:02:03.800481 [info ] [MainThread]: Running with dbt=1.11.0-b3
+[0m19:02:03.801878 [debug] [MainThread]: running dbt with arguments {'no_print': 'None', 'partial_parse': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'quiet': 'False', 'use_experimental_parser': 'False', 'profiles_dir': '/home/ecem/.dbt', 'fail_fast': 'False', 'invocation_command': 'dbt debug', 'use_colors': 'True', 'empty': 'None', 'debug': 'False', 'log_format': 'default', 'printer_width': '80', 'introspect': 'True', 'warn_error': 'None', 'static_parser': 'True', 'log_path': 'logs', 'send_anonymous_usage_stats': 'True', 'write_json': 'True', 'cache_selected_only': 'False', 'log_cache_events': 'False', 'indirect_selection': 'eager', 'target_path': 'None', 'version_check': 'True'}
+[0m19:02:03.887023 [info ] [MainThread]: dbt version: 1.11.0-b3
+[0m19:02:03.888285 [info ] [MainThread]: python version: 3.12.3
+[0m19:02:03.889003 [info ] [MainThread]: python path: /home/ecem/Desktop/data-pipeline-project/venv/bin/python3
+[0m19:02:03.889524 [info ] [MainThread]: os info: Linux-6.14.0-33-generic-x86_64-with-glibc2.39
+[0m19:02:09.656255 [info ] [MainThread]: Using profiles dir at /home/ecem/.dbt
+[0m19:02:09.658572 [info ] [MainThread]: Using profiles.yml file at /home/ecem/.dbt/profiles.yml
+[0m19:02:09.661853 [info ] [MainThread]: Using dbt_project.yml file at /home/ecem/Desktop/data-pipeline-project/dbt_project.yml
+[0m19:02:09.662426 [info ] [MainThread]: adapter type: bigquery
+[0m19:02:09.663109 [info ] [MainThread]: adapter version: 1.10.2
+[0m19:02:09.663580 [info ] [MainThread]: Configuration:
+[0m19:02:09.664282 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m19:02:09.664669 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m19:02:09.665391 [info ] [MainThread]: Required dependencies:
+[0m19:02:09.666106 [debug] [MainThread]: Executing "git --help"
+[0m19:02:09.677246 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           [--config-env=<name>=<envvar>] <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone     Clone a repository into a new directory\n   init      Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add       Add file contents to the index\n   mv        Move or rename a file, a directory, or a symlink\n   restore   Restore working tree files\n   rm        Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect    Use binary search to find the commit that introduced a bug\n   diff      Show changes between commits, commit and working tree, etc\n   grep      Print lines matching a pattern\n   log       Show commit logs\n   show      Show various types of objects\n   status    Show the working tree status\n\ngrow, mark and tweak your common history\n   branch    List, create, or delete branches\n   commit    Record changes to the repository\n   merge     Join two or more development histories together\n   rebase    Reapply commits on top of another base tip\n   reset     Reset current HEAD to the specified state\n   switch    Switch branches\n   tag       Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch     Download objects and refs from another repository\n   pull      Fetch from and integrate with another repository or a local branch\n   push      Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m19:02:09.678016 [debug] [MainThread]: STDERR: "b''"
+[0m19:02:09.678819 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m19:02:09.679211 [info ] [MainThread]: Connection:
+[0m19:02:09.680079 [info ] [MainThread]:   method: service-account
+[0m19:02:09.681096 [info ] [MainThread]:   database: data-pipeline-project-474812
+[0m19:02:09.681826 [info ] [MainThread]:   execution_project: data-pipeline-project-474812
+[0m19:02:09.682695 [info ] [MainThread]:   schema: analytics_staging
+[0m19:02:09.683211 [info ] [MainThread]:   location: US
+[0m19:02:09.683895 [info ] [MainThread]:   priority: interactive
+[0m19:02:09.684402 [info ] [MainThread]:   maximum_bytes_billed: None
+[0m19:02:09.685061 [info ] [MainThread]:   impersonate_service_account: None
+[0m19:02:09.686159 [info ] [MainThread]:   job_retry_deadline_seconds: None
+[0m19:02:09.686597 [info ] [MainThread]:   job_retries: 1
+[0m19:02:09.687291 [info ] [MainThread]:   job_creation_timeout_seconds: None
+[0m19:02:09.688107 [info ] [MainThread]:   job_execution_timeout_seconds: 300
+[0m19:02:09.688574 [info ] [MainThread]:   timeout_seconds: 300
+[0m19:02:09.688998 [info ] [MainThread]:   client_id: None
+[0m19:02:09.689877 [info ] [MainThread]:   token_uri: None
+[0m19:02:09.690336 [info ] [MainThread]:   compute_region: None
+[0m19:02:09.690990 [info ] [MainThread]:   dataproc_cluster_name: None
+[0m19:02:09.691438 [info ] [MainThread]:   gcs_bucket: None
+[0m19:02:09.692228 [info ] [MainThread]:   dataproc_batch: None
+[0m19:02:09.692985 [info ] [MainThread]: Registered adapter: bigquery=1.10.2
+[0m19:02:10.032050 [debug] [MainThread]: Acquiring new bigquery connection 'debug'
+[0m19:02:10.033197 [debug] [MainThread]: On debug: select 1 as id
+[0m19:02:10.034394 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m19:02:11.360982 [debug] [MainThread]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=data-pipeline-project-474812&j=bq:US:24f2d855-f0f4-4275-965d-ebad0039f2cd&page=queryresults
+[0m19:02:12.201002 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m19:02:12.201779 [info ] [MainThread]: [31m1 check failed:[0m
+[0m19:02:12.202737 [info ] [MainThread]: Project loading failed for the following reason:
+ project path </home/ecem/Desktop/data-pipeline-project/dbt_project.yml> not found
+
+[0m19:02:12.204582 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": false, "command_wall_clock_time": 8.461051, "process_in_blocks": "325656", "process_kernel_time": 3.110163, "process_mem_max_rss": "367656", "process_out_blocks": "24", "process_user_time": 3.224823}
+[0m19:02:12.205507 [debug] [MainThread]: Command `dbt debug` failed at 19:02:12.205199 after 8.46 seconds
+[0m19:02:12.206214 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m19:02:12.207068 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7aafec995d60>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7aafeccd3b00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7aafec7288f0>]}
+[0m19:02:12.207597 [debug] [MainThread]: Flushing usage events
+[0m19:02:13.118723 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m20:38:40.933345 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f32787b8e90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f32768806b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f32765cf590>]}
+
+
+============================== 20:38:40.970977 | 157a406e-d790-4f64-a69f-1039f9c3752f ==============================
+[0m20:38:40.970977 [info ] [MainThread]: Running with dbt=1.11.0-b3
+[0m20:38:40.973659 [debug] [MainThread]: running dbt with arguments {'no_print': 'None', 'use_colors': 'True', 'quiet': 'False', 'log_cache_events': 'False', 'profiles_dir': '.', 'introspect': 'True', 'fail_fast': 'False', 'indirect_selection': 'eager', 'log_format': 'default', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'debug': 'False', 'invocation_command': 'dbt run --select path:models/staging/*.sql --profiles-dir .', 'version_check': 'True', 'use_experimental_parser': 'False', 'log_path': 'logs', 'write_json': 'True', 'empty': 'False', 'printer_width': '80', 'partial_parse': 'True', 'target_path': 'None', 'warn_error': 'None', 'cache_selected_only': 'False', 'send_anonymous_usage_stats': 'True'}
+[0m20:38:40.974737 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /home/ecem/Desktop/data-pipeline-project/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m20:38:40.987470 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": false, "command_wall_clock_time": 0.27020046, "process_in_blocks": "21984", "process_kernel_time": 0.895884, "process_mem_max_rss": "102748", "process_out_blocks": "16", "process_user_time": 2.036869}
+[0m20:38:40.989881 [debug] [MainThread]: Command `dbt run` failed at 20:38:40.989618 after 0.28 seconds
+[0m20:38:40.991036 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f327a1b3b60>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3276ed89e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3276edb0e0>]}
+[0m20:38:40.992513 [debug] [MainThread]: Flushing usage events
+[0m20:38:42.015128 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m20:51:28.415863 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7406139fd040>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x740612788da0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x740612fcfe90>]}
+
+
+============================== 20:51:28.424110 | e35e7e29-11de-4196-8ab0-f97981a911e5 ==============================
+[0m20:51:28.424110 [info ] [MainThread]: Running with dbt=1.11.0-b3
+[0m20:51:28.425274 [debug] [MainThread]: running dbt with arguments {'debug': 'False', 'target_path': 'None', 'warn_error': 'None', 'fail_fast': 'False', 'version_check': 'True', 'introspect': 'True', 'log_format': 'default', 'log_path': 'logs', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'empty': 'None', 'invocation_command': 'dbt test --select dbt/models/staging/raw_sources.yml', 'printer_width': '80', 'use_colors': 'True', 'partial_parse': 'True', 'log_cache_events': 'False', 'no_print': 'None', 'quiet': 'False', 'static_parser': 'True', 'use_experimental_parser': 'False', 'cache_selected_only': 'False', 'profiles_dir': '/home/ecem/.dbt', 'send_anonymous_usage_stats': 'True', 'write_json': 'True', 'indirect_selection': 'eager'}
+[0m20:51:28.426343 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /home/ecem/Desktop/data-pipeline-project/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m20:51:28.428080 [debug] [MainThread]: Resource report: {"command_name": "test", "command_success": false, "command_wall_clock_time": 0.10913964, "process_in_blocks": "24", "process_kernel_time": 0.513946, "process_mem_max_rss": "102816", "process_out_blocks": "8", "process_user_time": 1.601842}
+[0m20:51:28.431782 [debug] [MainThread]: Command `dbt test` failed at 20:51:28.431597 after 0.11 seconds
+[0m20:51:28.432486 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7406136e1670>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7406139aeb70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74061297be60>]}
+[0m20:51:28.433148 [debug] [MainThread]: Flushing usage events
+[0m20:51:29.389871 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m20:52:20.006624 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e509514a660>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e509766a5d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e5094bbd2e0>]}
+
+
+============================== 20:52:20.015161 | 0a0e85e1-242a-4310-9f45-02dd3357b21b ==============================
+[0m20:52:20.015161 [info ] [MainThread]: Running with dbt=1.11.0-b3
+[0m20:52:20.017021 [debug] [MainThread]: running dbt with arguments {'no_print': 'None', 'version_check': 'True', 'introspect': 'True', 'use_experimental_parser': 'False', 'profiles_dir': '/home/ecem/.dbt', 'log_cache_events': 'False', 'quiet': 'False', 'empty': 'None', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'fail_fast': 'False', 'cache_selected_only': 'False', 'log_path': 'logs', 'partial_parse': 'True', 'use_colors': 'True', 'invocation_command': 'dbt test --select dbt/models/staging/raw_sources.yml', 'indirect_selection': 'eager', 'debug': 'False', 'printer_width': '80', 'write_json': 'True', 'send_anonymous_usage_stats': 'True', 'log_format': 'default', 'warn_error': 'None', 'target_path': 'None'}
+[0m20:52:20.018307 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /home/ecem/Desktop/data-pipeline-project/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m20:52:20.020932 [debug] [MainThread]: Resource report: {"command_name": "test", "command_success": false, "command_wall_clock_time": 0.09155465, "process_in_blocks": "0", "process_kernel_time": 0.388404, "process_mem_max_rss": "102740", "process_out_blocks": "16", "process_user_time": 1.773714}
+[0m20:52:20.022217 [debug] [MainThread]: Command `dbt test` failed at 20:52:20.022015 after 0.09 seconds
+[0m20:52:20.023286 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e50950786b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e5094c57ce0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e50950d8cb0>]}
+[0m20:52:20.024433 [debug] [MainThread]: Flushing usage events
+[0m20:52:20.786663 [debug] [MainThread]: An error was encountered while trying to flush usage events

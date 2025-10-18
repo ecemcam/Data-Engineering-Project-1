@@ -1,0 +1,140 @@
+version: 2
+
+models:
+
+  # ===================== FACT LAYER TESTS =====================
+  - name: fct_order
+    description: "Daily order events, tied to revenue and customer"
+    columns:
+      - name: order_id
+        description: "Primary key (Unique transactional ID)"
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: "Foreign key to the Users/Customer dimension"
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_customer')
+                field: customer_id
+      - name: discount_total
+        description: "Total discount amount. Must be non-negative"
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+      - name: net_revenue
+        description: "Calculated net revenue. Must be non-negative"
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+# I didn't add the order_id because, not every order has got shipped.
+  - name: fct_shipment
+    description: "Shipment events tied to order status"
+    columns:
+      - name: shipment_id
+        tests:
+          - unique
+          - not_null
+
+  - name: fct_marketing_spend
+    description: "Daily marketing spend"
+    columns:
+      - name: date
+        tests:
+          - not_null
+      - name: spend_try
+        description: "Total spend for the day. Must be non-negative"
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+
+  # ===================== DIMENSION LAYER TESTS =====================
+  - name: dim_customer
+    description: "Customer dimension table"
+    columns:
+      - name: customer_id
+        tests:
+          # I didn't create uniquness test as i noticed that a user can have a multiple address in the stg_address table.
+          - not_null
+
+  - name: dim_subscription
+    description: "Subscription dimension table"
+    columns:
+      - name: subscription_id
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_customer')
+                field: customer_id
+
+  # ===================== MART LAYER SANITY CHECKS =====================
+  - name: mart_subscription_daily
+    description: "Daily subscription metrics"
+    columns:
+      - name: date
+        tests:
+          - unique
+          - not_null
+      - name: active_subscribers
+        tests:
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+      - name: new_subscribers
+        tests:
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+
+  - name: mart_revenue_daily
+    description: "Daily revenue metrics"
+    columns:
+      - name: date
+        tests:
+          - unique
+          - not_null
+      - name: daily_revenue
+        tests:
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+
+  - name: mart_acquisition_efficiency
+    description: "Marketing acquisition efficiency"
+    columns:
+      - name: date
+        tests:
+          - unique
+          - not_null
+      - name: daily_customer_acquisition_cost
+        tests:
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+
+  - name: mart_kpis_latest
+    description: "Latest business KPIs snapshot"
+    columns:
+      - name: monthly_recurring_revenue
+        tests:
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+      - name: cac_payback_months
+        tests:
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0

@@ -1,0 +1,27 @@
+{"timestamp":"2025-10-17T20:07:26.386008Z","level":"info","event":"DAG bundles loaded: dags-folder, example_dags","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager","filename":"manager.py","lineno":179}
+{"timestamp":"2025-10-17T20:07:26.391897Z","level":"info","event":"Filling up the DagBag from /home/ecem/Desktop/data-pipeline-project/airflow_orchestration/dags/etl_pipeline.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-10-17T20:07:26.755030Z","level":"info","event":"Task instance is in running state","logger":"task.stdout"}
+{"timestamp":"2025-10-17T20:07:26.763767Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.QUEUED","logger":"task.stdout"}
+{"timestamp":"2025-10-17T20:07:26.764348Z","level":"info","event":"Current task name:step_0_data_readiness_check","logger":"task.stdout"}
+{"timestamp":"2025-10-17T20:07:26.764433Z","level":"info","event":"Dag name:beije_elt_pipeline_layered","logger":"task.stdout"}
+{"timestamp":"2025-10-17T20:07:26.786270Z","level":"info","event":"================================================================================","logger":"unusual_prefix_43f014b307d40fa5118140f2106ce6c84b5eefc2_etl_pipeline","filename":"etl_pipeline.py","lineno":82}
+{"timestamp":"2025-10-17T20:07:26.786922Z","level":"info","event":"📋 STEP 0: DATA READINESS CHECK","logger":"unusual_prefix_43f014b307d40fa5118140f2106ce6c84b5eefc2_etl_pipeline","filename":"etl_pipeline.py","lineno":83}
+{"timestamp":"2025-10-17T20:07:26.787176Z","level":"info","event":"================================================================================","logger":"unusual_prefix_43f014b307d40fa5118140f2106ce6c84b5eefc2_etl_pipeline","filename":"etl_pipeline.py","lineno":84}
+{"timestamp":"2025-10-17T20:07:26.791107Z","level":"info","event":"Checking for CSV files in: /home/ecem/Desktop/data-pipeline-project/raw_data","logger":"unusual_prefix_43f014b307d40fa5118140f2106ce6c84b5eefc2_etl_pipeline","filename":"etl_pipeline.py","lineno":85}
+{"timestamp":"2025-10-17T20:07:26.791458Z","level":"info","event":"users (1).csv exists","logger":"unusual_prefix_43f014b307d40fa5118140f2106ce6c84b5eefc2_etl_pipeline","filename":"etl_pipeline.py","lineno":94}
+{"timestamp":"2025-10-17T20:07:26.797442Z","level":"info","event":"subscriptions (1).csv exists","logger":"unusual_prefix_43f014b307d40fa5118140f2106ce6c84b5eefc2_etl_pipeline","filename":"etl_pipeline.py","lineno":94}
+{"timestamp":"2025-10-17T20:07:26.797949Z","level":"info","event":"orders (1).csv exists","logger":"unusual_prefix_43f014b307d40fa5118140f2106ce6c84b5eefc2_etl_pipeline","filename":"etl_pipeline.py","lineno":94}
+{"timestamp":"2025-10-17T20:07:26.803857Z","level":"info","event":"shipments (1).csv exists","logger":"unusual_prefix_43f014b307d40fa5118140f2106ce6c84b5eefc2_etl_pipeline","filename":"etl_pipeline.py","lineno":94}
+{"timestamp":"2025-10-17T20:07:26.804268Z","level":"info","event":"Marketing Spend (TRY).csv exists","logger":"unusual_prefix_43f014b307d40fa5118140f2106ce6c84b5eefc2_etl_pipeline","filename":"etl_pipeline.py","lineno":94}
+{"timestamp":"2025-10-17T20:07:26.804419Z","level":"info","event":"countries (1).csv exists","logger":"unusual_prefix_43f014b307d40fa5118140f2106ce6c84b5eefc2_etl_pipeline","filename":"etl_pipeline.py","lineno":94}
+{"timestamp":"2025-10-17T20:07:26.804566Z","level":"info","event":"states (1).csv exists","logger":"unusual_prefix_43f014b307d40fa5118140f2106ce6c84b5eefc2_etl_pipeline","filename":"etl_pipeline.py","lineno":94}
+{"timestamp":"2025-10-17T20:07:26.804713Z","level":"info","event":"cities (1).csv exists","logger":"unusual_prefix_43f014b307d40fa5118140f2106ce6c84b5eefc2_etl_pipeline","filename":"etl_pipeline.py","lineno":94}
+{"timestamp":"2025-10-17T20:07:26.804872Z","level":"info","event":"neighborhoods (1).csv exists","logger":"unusual_prefix_43f014b307d40fa5118140f2106ce6c84b5eefc2_etl_pipeline","filename":"etl_pipeline.py","lineno":94}
+{"timestamp":"2025-10-17T20:07:26.805068Z","level":"info","event":"addresses (1).csv exists","logger":"unusual_prefix_43f014b307d40fa5118140f2106ce6c84b5eefc2_etl_pipeline","filename":"etl_pipeline.py","lineno":94}
+{"timestamp":"2025-10-17T20:07:26.805152Z","level":"info","event":"","logger":"unusual_prefix_43f014b307d40fa5118140f2106ce6c84b5eefc2_etl_pipeline","filename":"etl_pipeline.py","lineno":99}
+{"timestamp":"2025-10-17T20:07:26.805226Z","level":"info","event":"Summary: 10/10 files found","logger":"unusual_prefix_43f014b307d40fa5118140f2106ce6c84b5eefc2_etl_pipeline","filename":"etl_pipeline.py","lineno":100}
+{"timestamp":"2025-10-17T20:07:26.805293Z","level":"info","event":"All required CSV files are present","logger":"unusual_prefix_43f014b307d40fa5118140f2106ce6c84b5eefc2_etl_pipeline","filename":"etl_pipeline.py","lineno":106}
+{"timestamp":"2025-10-17T20:07:26.907277Z","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.operators.python.PythonOperator","filename":"python.py","lineno":218}
+{"timestamp":"2025-10-17T20:07:27.073080Z","level":"info","event":"Task instance in success state","logger":"task.stdout"}
+{"timestamp":"2025-10-17T20:07:27.073586Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.RUNNING","logger":"task.stdout"}
+{"timestamp":"2025-10-17T20:07:27.077491Z","level":"info","event":"Task operator:<Task(PythonOperator): step_0_data_readiness_check>","logger":"task.stdout"}

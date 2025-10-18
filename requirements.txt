@@ -1,0 +1,15 @@
+# Install the required tools
+
+# Core Transformation Tool
+dbt-bigquery
+
+# Google Cloud SDK clients
+google-cloud-storage
+google-cloud-bigquery
+
+# Data manipulation
+pandas
+
+# Airflow
+apache-airflow
+apache-airflow-providers-google

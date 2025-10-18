@@ -1,0 +1,111 @@
+version: 2
+
+sources:
+  - name: raw_data
+    description: "Source data from the ingestion layer (raw CSV files)"
+    database: data-pipeline-project-474812
+    schema: raw_data
+    
+    tables:
+      # Transactional tables - check freshness
+      - name: users
+        description: "Raw users table"
+        loaded_at_field: createdAt
+        freshness: {warn_after: {count: 24, period: hour}, error_after: {count: 48, period: hour}}
+        columns:
+          - name: _id
+            tests:
+              - not_null:
+                  severity: warn  # WARNING: Check for missing user IDs in raw data
+      
+      - name: orders
+        description: "Raw orders table" 
+        loaded_at_field: createdAt
+        freshness: {warn_after: {count: 24, period: hour}, error_after: {count: 48, period: hour}}
+        columns:
+          - name: _id
+            tests:
+              - not_null:
+                  severity: warn  # WARNING: Check for missing order IDs
+          - name: _user
+            tests:
+              - not_null:
+                  severity: warn  # CRITICAL: Orders must have user references
+      
+      - name: subscriptions
+        description: "Raw subscriptions table"
+        loaded_at_field: createdAt
+        freshness: {warn_after: {count: 24, period: hour}, error_after: {count: 48, period: hour}}
+        columns:
+          - name: _id
+            tests:
+              - not_null:
+                  severity: warn  # WARNING: Check for missing subscription IDs
+          - name: _user
+            tests:
+              - not_null:
+                  severity: warn  # CRITICAL: Subscriptions must have user references
+      
+      - name: shipments
+        description: "Raw shipments table"
+        loaded_at_field: createdAt
+        freshness: {warn_after: {count: 24, period: hour}, error_after: {count: 48, period: hour}}
+        columns:
+          - name: _id
+            tests:
+              - not_null:
+                  severity: warn  # WARNING: Check for missing shipment IDs
+          - name: _order
+            tests:
+              - not_null:
+                  severity: warn  # CRITICAL: Shipments must have order references
+          - name: _user
+            tests:
+              - not_null:
+                  severity: warn  # CRITICAL: Shipments must have user references
+    
+      # Marketing data - skip freshness (special structure)
+      - name: marketing_spend
+        description: "Raw marketing spend data (wide format - requires unpivoting)"
+        # No column tests due to complex structure
+    
+      # Reference tables - skip freshness (static data)
+      - name: addresses
+        description: "Raw addresses table"
+        columns:
+          - name: _id
+            tests:
+              - not_null:
+                  severity: warn  # WARNING: Check for missing address IDs
+      
+      - name: countries
+        description: "Raw countries reference table"
+        columns:
+          - name: _id
+            tests:
+              - not_null:
+                  severity: warn  # WARNING: Check for missing country IDs
+      
+      - name: states  
+        description: "Raw states reference table"
+        columns:
+          - name: _id
+            tests:
+              - not_null:
+                  severity: warn  # WARNING: Check for missing state IDs
+      
+      - name: cities
+        description: "Raw cities reference table"
+        columns:
+          - name: _id
+            tests:
+              - not_null:
+                  severity: warn  # WARNING: Check for missing city IDs
+      
+      - name: neighborhoods
+        description: "Raw neighborhoods reference table"
+        columns:
+          - name: _id
+            tests:
+              - not_null:
+                  severity: warn  # WARNING: Check for missing neighborhood IDs

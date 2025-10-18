@@ -1,0 +1,37 @@
+name: 'data_pipeline_project'
+version: '1.0.0'
+config-version: 2
+
+# The profile name must match the name 'data_pipeline_project' in your ~/.dbt/profiles.yml file.
+profile: 'data_pipeline_project'
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+test-paths: ["tests"]
+analysis-paths: ["analyses"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+target-path: "target"  # directory to store compiled SQL and logs
+clean-targets:         # directories to clean when `dbt clean` is run
+  - "target"
+  - "dbt_packages"
+
+# Default configuration for all models in this project
+models:
+  data_pipeline_project:
+    # Default materialization for all models (views are fast for development)
+    +materialized: view
+    # Default schema (will be inside your analytics_staging BigQuery Dataset)
+    +schema: staging
+
+    # Configuration specific to the 'staging' folder of models
+    staging:
+      +schema: staging
+      +materialized: view
+
+    # Configuration specific to the 'marts' folder of models
+    marts:
+      +schema: marts
+      # Materialized as tables for better query performance on final aggregates
+      +materialized: table
