@@ -14,9 +14,8 @@ pip install -r requirements.txt
 ### 2. Set Up Google Cloud Credentials
 ```bash
 # Download service account JSON key from Google Cloud Console
-mkdir -p ~/.secrets
 mv ~/Downloads/gcp-key.json ~/.gcp/
-chmod 600 ~/.secrets/gcp-key.json
+chmod 600 ~/.gcp/gcp-key.json
 export GOOGLE_APPLICATION_CREDENTIALS=~/.gcp/gcp-key.json
 ```
 
@@ -28,9 +27,9 @@ beije:
   outputs:
     dev:
       type: bigquery
-      project: data-pipeline-project-474812
+      project: data-pipeline-project-id
       dataset: analytics_staging_raw
-      keyfile: ~/.secrets/gcp-key.json
+      keyfile: ~/.gcp/gcp-key.json
   target: dev
 EOF
 
