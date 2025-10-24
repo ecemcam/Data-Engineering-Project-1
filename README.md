@@ -1,4 +1,4 @@
-# DATA PIPELINE PROJECT
+# DATA ENGINEERING PROJECT-1
  Data engineering project with dbt, bigquery and airflow orchestration.
 
 ## Quick Setup
